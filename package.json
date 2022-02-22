@@ -1,0 +1,33 @@
+{
+  "name": "saucenao.js",
+  "version": "1.0.0",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "test": "ts-node test/test.ts",
+    "build": "tsc -p ."
+  },
+  "files": [
+    "dist"
+  ],
+  "homepage": "https://github.com/JQweenq/SauceNao.js#README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JQweenq/SauceNao.js"
+  },
+  "bugs": {
+    "url": "https://github.com/JQweenq/SauceNao.js/issues"
+  },
+  "keywords": [
+    "api",
+    "saucenao"
+  ],
+  "author": "Josty Qweenq",
+  "license": "MIT",
+  "description": "API for saucenao.com",
+  "devDependencies": {
+    "@types/node": "^17.0.8",
+    "ts-node": "^10.5.0",
+    "typescript": "^4.5.5"
+  }
+}
