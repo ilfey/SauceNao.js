@@ -28,6 +28,7 @@ export interface Header {
     long_remaining: number;
     short_remaining: number;
     status: number;
+    message?: string;
     results_requested: number;
     index: {
         [id: string]: HeaderIndex;

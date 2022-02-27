@@ -4,25 +4,27 @@ import {ClientRequest} from 'http';
 import {FindResult, RequestParams} from './typing';
 import {ClientError, UnknownError} from "./errors";
 
-export default class SauceNao {
+export class SauceNao {
     private url: URL = new URL('https://saucenao.com/search.php');
 
-    constructor(dynamicParams: RequestParams) {
+    constructor(dynamicParams?: RequestParams) {
 
-        Object.keys(dynamicParams).map(value => this.url.searchParams.set(value, dynamicParams[value].toString()))
-
+        if (dynamicParams) {
+            Object.keys(dynamicParams).map(value => this.url.searchParams.set(value, dynamicParams[value].toString()));
+        }
         this.url.searchParams.set('output_type', '2');
     }
 
     public find(staticParams: RequestParams | string): Promise<FindResult> {
         let body: string = '';
+        let temp: URL = new URL('', this.url);
 
-        typeof staticParams === "string" ? this.url.searchParams.set('url', staticParams) : Object.keys(staticParams).map(value => this.url.searchParams.set(value, staticParams[value].toString()))
+        typeof staticParams === "string" ? temp.searchParams.set('url', staticParams) : Object.keys(staticParams).map(value => temp.searchParams.set(value, staticParams[value].toString()))
 
         const options: RequestOptions = {
             method: 'GET',
             host: this.url.hostname,
-            path: this.url.pathname + this.url.search
+            path: this.url.pathname + temp.search
         }
 
         return new Promise(r => {
@@ -36,18 +38,19 @@ export default class SauceNao {
                     switch (json.header.status) {
                         case -3: {
                             throw new ClientError("You need an Image!");
-                            break;
+                        }
+                        case -2: {
+                            throw new ClientError("Search Rate Too High.");
                         }
                         case -1: {
                             throw new ClientError("The anonymous account type does not permit API usage.");
-                            break;
                         }
                         case 0: {
                             r(json);
                             break;
                         }
                         default:
-                            throw json.header.status > 0 ? new UnknownError('Unknown client error') : new UnknownError('Unknown client error');
+                            throw json.header.status > 0 ? new UnknownError(`Unknown server error. Code: ${json.header.status}. Message: ${json.header.message}. If you know what the error is, please report`) : new UnknownError(`Unknown client error. Code: ${json.header.status}. Message: ${json.header.message}. If you know what the error is, please report`);
                     }
                 })
             })
