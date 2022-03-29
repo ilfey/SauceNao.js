@@ -70,7 +70,7 @@ return: `Promise<FindResult>`
         results_returned: number;
     }
 
-    data:{
+    results: {
         ext_urls: [
             string
         ];

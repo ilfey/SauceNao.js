@@ -109,5 +109,5 @@ export type Indices =
 
 export interface FindResult {
     header: Header;
-    data: Array<Result>;
+    results: Array<Result>;
 }

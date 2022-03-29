@@ -1,6 +1,6 @@
 {
   "name": "saucenao.js",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
@@ -10,13 +10,13 @@
   "files": [
     "dist"
   ],
-  "homepage": "https://github.com/JQweenq/SauceNao.js#README.md",
+  "homepage": "https://github.com/JQweenq/saucenao.js#README.md",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JQweenq/SauceNao.js"
+    "url": "git+https://github.com/JQweenq/saucenao.js"
   },
   "bugs": {
-    "url": "https://github.com/JQweenq/SauceNao.js/issues"
+    "url": "https://github.com/JQweenq/saucenao.js/issues"
   },
   "keywords": [
     "api",
@@ -27,7 +27,7 @@
   "description": "Simple API for saucenao.com",
   "devDependencies": {
     "@types/node": "^17.0.8",
-    "ts-node": "^10.5.0",
+    "ts-node": "^10.7.0",
     "typescript": "^4.5.5"
   }
 }
