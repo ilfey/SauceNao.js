@@ -29,16 +29,16 @@ return: `Promise<Respone>`
 
 ```ts
 {
-    api_key ? : string;
-    testmode ? : 1;
-    dbmask ? : number;
-    dbmaski ? : number;
-    db ? : number;
-    dbs ? : Array<number>;
-    numres ? : number;
-    dedupe ? : 0 | 1 | 2;
-    hide ? : 0 | 1 | 2 | 3;
-    url ? : string;
+  api_key ? : string;
+  testmode ? : 1;
+  dbmask ? : number;
+  dbmaski ? : number;
+  db ? : number;
+  dbs ? : Array<number>;
+  numres ? : number;
+  dedupe ? : 0 | 1 | 2;
+  hide ? : 0 | 1 | 2 | 3;
+  url ? : string;
 }
 ```
 
@@ -48,8 +48,8 @@ return: `Promise<Respone>`
 
 ```ts
 {
-	header: ResponseHeader;
-	results: Array<Result>;
+  header: ResponseHeader;
+  results: Array<Result>;
 }
 ```
 
@@ -120,5 +120,16 @@ return: `Promise<Respone>`
   user_acct?: string;
   yandere_id?: string;
   "anime-pictures_id"?: string;
+  creator?: Array<string> | string;
+  eng_name?: string;
+  jp_name?: string;
+  material?: string;
+  characters?: string;
+  published?: Date;
+  service?: string;
+  service_name?: string;
+  id?: string;
+  user_id?: string;
+  user_name?: string;
 }
 ```
