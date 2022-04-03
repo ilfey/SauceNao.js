@@ -90,6 +90,17 @@ export interface Data {
   user_acct?: string;
   yandere_id?: string;
   "anime-pictures_id"?: string;
+  creator?: string[] | string;
+  eng_name?: string;
+  jp_name?: string;
+  material?: string;
+  characters?: string;
+  published?: Date;
+  service?: string;
+  service_name?: string;
+  id?: string;
+  user_id?: string;
+  user_name?: string;
 }
 
 export interface ResultHeader {
