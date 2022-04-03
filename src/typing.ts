@@ -15,7 +15,7 @@ export interface RequestParams {
 
 export interface Response {
   header: ResponseHeader;
-  results: Result[];
+  results: Array<Result>;
 }
 
 export interface ResponseHeader {
@@ -49,7 +49,7 @@ export interface Result {
 }
 
 export interface Data {
-  ext_urls: string[];
+  ext_urls: Array<string>;
   md_id?: number;
   mu_id?: number;
   mal_id?: number;
